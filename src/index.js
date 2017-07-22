@@ -1,13 +1,18 @@
 import C from './constants'
-import { allSkiDays, goal } from './initialState.json'
+import { goal } from './store/reducers'
+
+const state = 10 // use *const* to stop change of 'state'
+
+const action = {
+    type: C.SET_GOAL,
+    payload: 15
+}
+
+const nextState = goal(state, actions)
 
 console.log(`
-    Ski Day Counter 
-    =================
-    The goal is ${goal} allSkiDays
-    Initially there are ${allSkiDays.length} ski days in state
 
-    Constants (actions)
-    -------------------
-    ${Object.keys(C).join('\n     ')}
-`);
+    initial goal: ${state}
+    action: ${JSON.stringify(action)}
+    new goal: ${nextState}
+`)
