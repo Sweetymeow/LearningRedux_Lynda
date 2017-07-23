@@ -1,5 +1,9 @@
 import C from '../constants'
+/*---------- Chapter 2-6 ----------*/
+export const fetching = (state= false, action) => 
+    (action.type === C.FETCH_RESORT_NAMES) ? true : false
 
+/*---------- Chapter 2-1 to Chapter 2-5 ----------*/
 // satet default value is 10
 export const goal = (state = 10, action) => 
     (action.type === C.SET_GOAL) ? parseInt(action.payload) : state
