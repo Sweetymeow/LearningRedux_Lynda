@@ -1,38 +1,44 @@
 import C from './constants'
-import { allSkiDays } from './store/reducers'
+import appReducer from './store/reducers' // get Default from combineReducers()
+import initialState from './initialState.json'
 
-const state = [{
-        "resort": "Kirkwood",
-        "date": "2016-11-11",
-        "powder": false,
-        "backcountry": true
-}, {
-        "resort": "Boreal",
-        "date": "2016-10-09",
-        "powder": true,
-        "backcountry": false
-}] // use *const* to stop change of 'state'
+let state = initialState
 
-const action = {
+console.log(`
+    Init State
+    ==============
+    goal: ${state.goal}
+    resorts: ${JSON.stringify(state.allSkiDays)}
+    fetching: ${JSON.stringify(state.resortNames.fetching)}
+    suggestions: ${JSON.stringify(state.resortNames.suggestions)}
+`)
+
+state = appReducer(state, {
+    type: C.SET_GOAL,
+    payload: 2
+})
+    
+state = appReducer(state, {
     type: C.ADD_DAY,
     payload: {
         "resort": "Kirkwood",
         "date": "2016-11-11",
         "powder": false,
-        "backcountry": false
+        "backcountry": true
     }
-}
+})
 
-const removeAction = {
-    type: C.REMOVE_DAY,
-    payload: "2016-10-09"
-}
-
-const nextState = allSkiDays(state, removeAction)
-//const nextState = allSkiDays(state, action)
+state = appReducer(state, {
+    type: C.CHANGE_SUGGESTIONS,
+    payload: ['Mt Tallac', 'Mt Hood', 'Mt Shata']
+})
 
 console.log(`
-    initial state: ${JSON.stringify(state)}
-    action: ${JSON.stringify(action)}
-    new state: ${JSON.stringify(nextState)}
+    Next State
+    ==============
+    goal: ${state.goal}
+    resorts: ${JSON.stringify(state.allSkiDays)}
+    fetching: ${JSON.stringify(state.resortNames.fetching)}
+    suggestions: ${JSON.stringify(state.resortNames.suggestions)}
 `)
+
