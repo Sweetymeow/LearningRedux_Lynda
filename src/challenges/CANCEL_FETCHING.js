@@ -14,8 +14,5 @@ const actualState = fetching(state, action)
 expect(actualState).toEqual(expectedState)
 
 console.log(`
-
     Challenge B: CANCEL_FETCHING PASSED!!!
-
-
 `)

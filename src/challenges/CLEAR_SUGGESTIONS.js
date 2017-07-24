@@ -15,8 +15,5 @@ const actualState = suggestions(state, action)
 expect(actualState).toEqual(expectedState)
 
 console.log(`
-
     Challenge C: CLEAR_SUGGESTIONS PASSED!!!
-
-
 `)

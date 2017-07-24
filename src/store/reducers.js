@@ -1,7 +1,34 @@
 import C from '../constants'
 /*---------- Chapter 2-6 ----------*/
-export const fetching = (state= false, action) => 
-    (action.type === C.FETCH_RESORT_NAMES) ? true : false
+export const fetching = ( state = false, action) =>{
+    switch(action.type){
+       case C.FETCH_RESORT_NAMES:
+            return true
+            break;
+        case C.CANCEL_FETCHING:
+            return false
+            break;
+        case C.CHANGE_SUGGESTIONS:
+            return false
+            break;
+        default:
+            return state;      
+    }
+}
+
+export const suggestions = ( state = [], action ) =>{
+    switch(action.type){
+       case C.CLEAR_SUGGESTIONS:
+            return []
+            break;
+        case C.CHANGE_SUGGESTIONS:
+            return action.payload
+            break;
+        default:
+            return state;      
+    }
+}
+
 
 /*---------- Chapter 2-1 to Chapter 2-5 ----------*/
 // satet default value is 10
@@ -12,7 +39,7 @@ export const goal = (state = 10, action) =>
 // Skiday Reducer
 export const skiDay = (state = null, action) => 
     (action.type === C.ADD_DAY) ? action.payload : state
-// Return SkiDay {"resort", "date", "powder", "backcountry"}        
+// Return SkiDay {"resort", "date", "powder", "backcountry"}       
 
 export const errors = (state = [], action) => {
     switch(action.type){
