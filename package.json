@@ -1,26 +1,23 @@
 {
   "name": "ski-day-counter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/.bin/babel-node ./src/",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "challenge-a": "babel-node ./src/challenges/FETCH_RESORT_NAMES.js",
-    "challenge-b": "babel-node ./src/challenges/CANCEL_FETCHING.js",
-    "challenge-c": "babel-node ./src/challenges/CLEAR_SUGGESTIONS.js",
-    "challenge-d": "babel-node ./src/challenges/CHANGE_SUGGESTIONS.js"
+    "start": "./node_modules/.bin/webpack-dev-server"
   },
   "author": "Wendy Wen",
   "license": "ISC",
-  "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-preset-latest": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "expect": "^1.20.2"
-  },
   "dependencies": {
-    "babel-preset-stage-0": "^6.16.1",
-    "redux": "^3.7.2"
+    "redux": "^3.6.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "json-loader": "^0.5.7",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.14"
   }
 }
