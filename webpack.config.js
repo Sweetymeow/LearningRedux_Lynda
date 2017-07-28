@@ -3,7 +3,7 @@ module.exports ={
     output: {
         path: "dist/assets",
         filename: "bundle.js",
-        publicPath: "assets"
+        publicPath: "http://localhost:3000/assets"
     },
     devServer: {
         inline: true,
