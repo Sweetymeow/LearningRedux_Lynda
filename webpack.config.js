@@ -1,14 +1,16 @@
 module.exports ={
-    entry : "./src/index.js",
+    entry : ['webpack/hot/dev-server', 
+             './src/index.js'],
     output: {
         path: "dist/assets",
         filename: "bundle.js",
-        publicPath: "http://localhost:3000/assets"
+        publicPath: "/assets"
     },
     devServer: {
         inline: true,
         contentBase: "./dist",
-        port: 3000
+        port: 3000,
+        hot: true
     },
     module: {
         loaders: [{
