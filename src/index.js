@@ -1,21 +1,32 @@
-import C from './constants'
-import storeFactory from './store' // get Default from combineReducers()
-import initialState from './initialState'
+import expect from 'expect' // show store data before and after dispatch
+import storeFactory from './store' // show store data before and after dispatch
+import { addError, 
+         clearError, 
+         changeSuggestions, 
+         clearSuggestions 
+} from './actions'  // addDay, removeDay, setGoal 
+// import initialState from './initialState'
 
-//const initialState =  localStorage['local-redux'] ? JSON.stringify( localStorage['local-redux']) : {}
+const store = storeFactory() //const store = storeFactory(initialState)
 
-const saveState = () => {
-    const state = JSON.stringify( store.getState() )
-    localStorage['local-redux'] = state;
-} // save current state to browser's localStorage
+const state = store.getState()
 
-const store = storeFactory(initialState)
+console.log('Initial State: ', state) 
 
-console.log(store.getState()) 
+//store.subscribe(saveState)
+/*
+store.dispatch(addDay("Heavenly", "2016-12-22"))
+store.dispatch(removeDay("2016-12-22"))
+store.dispatch(setGoal(55))
+*/
 
-store.subscribe(saveState)
+expect(store.getState().errors).toEqual(["something went wrong"])
 
-store.dispatch({
+console.log(`
+    addError() Action Creator Works!!
+`)
+
+/* {
     type: C.ADD_DAY,
     payload: {
         "resort": "Mt Shasta",
@@ -23,24 +34,4 @@ store.dispatch({
         "powder": true,
         "backcountry": true
     }
-})
-
-store.dispatch({
-    type: C.ADD_DAY,
-    payload: {
-        "resort": "Squaw Valley",
-        "date": "2016-03-19",
-        "powder": false,
-        "backcountry": true
-    }
-})
-
-store.dispatch({
-    type: C.ADD_DAY,
-    payload: {
-        "resort": "The Canyons",
-        "date": "2017-01-03",
-        "powder": true,
-        "backcountry": false
-    }
-})
+} */

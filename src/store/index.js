@@ -1,5 +1,5 @@
 import C from '../constants'
-import appReducer from './reducers' // get Default from combineReducers()
+import appReducer from './reducers' // get Default from combineReducers() - include all reducer
 import { createStore, applyMiddleware } from 'redux'
 
 const consoleMessages = store => next => action => {
@@ -17,11 +17,11 @@ const consoleMessages = store => next => action => {
     console.log(`
         AFTER Dispatch 
         ===============================
-        ski days: ${ allSkiDays.length}
-        goal: ${ goal}
-        fetching: ${ resortNames.fetching}
+        ski days: ${ allSkiDays.length }
+        goal: ${ goal }
+        fetching: ${ resortNames.fetching }
         suggestions: ${ resortNames.suggestions }
-        errors: ${ errors.length}
+        errors: ${ errors.length }
     `)
     
     console.groupEnd()
