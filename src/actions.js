@@ -1,5 +1,6 @@
 import C from './constants'
 
+/*--------- Chapter 4-1 Action Creator --------------*/
 export const addDay = (resort, date, powder = false, backgrountry = false) => {
     return {
         type: C.ADD_DAY,
@@ -47,4 +48,27 @@ export const clearSuggestions = () => {
         payload: []
     }
 }
+
+/*--------- Chapter 4-3 Redux-thunk/Async --------------*/
+// thunk function with hight order function to control the action to dispatch
+export const randomGoals = () => (dispatch, getState) => { 
+    
+    if(!getState().resortNames.fetching){ // Check the current state for fetching
+        
+        dispatch({
+            type: C.FETCH_RESORT_NAMES
+        })
+
+        setTimeout(()=>{
+            dispatch({
+                type: C.CANCEL_FETCHING
+            })
+        }, 1500)  
+    } 
+    
+}
+
+
+
+
 

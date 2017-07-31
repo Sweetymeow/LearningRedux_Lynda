@@ -9,7 +9,8 @@
   "author": "Wendy Wen",
   "license": "ISC",
   "dependencies": {
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",

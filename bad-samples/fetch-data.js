@@ -4,10 +4,8 @@ export const suggestions = (state=[], action) => {
 
     case C.CLEAR_SUGGESTIONS :
 
-    	//
       //  Bad Reducer!
       //  Don't make AJAX requests from a reducer
-      //
 
     	fetch('http://localhost:3000/resorts')
     		.then(response => response.json())
