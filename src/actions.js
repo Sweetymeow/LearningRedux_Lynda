@@ -21,31 +21,30 @@ export const setGoal = (goal) => {
     }
 }
 
-export const addError = () => {
-    return {
+/*--------- Chapter 4-2 Action Creator --------------*/
+export const addError = (error) => ({
         type: C.ADD_ERROR,
-        payload: goal
-    }
-}
+        payload: error
+    })
 
-export const clearError = () => {
+export const clearError = (index) => {
     return {
         type: C.CLEAR_ERROR,
-        payload: goal
+        payload: index
     }
 }
 
-export const changeSuggestions = () => {
+export const changeSuggestions = ( nexSuggestions = [] ) => {
     return {
-        type: C.CHANGE_SUGGESTIONS
-        payload: goal
+        type: C.CHANGE_SUGGESTIONS,
+        payload: nexSuggestions
     }
 }
 
 export const clearSuggestions = () => {
     return {
-        type: C.CLEAR_SUGGESTIONS
-        payload: goal
+        type: C.CHANGE_SUGGESTIONS,
+        payload: []
     }
 }
 
